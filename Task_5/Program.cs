@@ -54,6 +54,7 @@ namespace Task_5
                 }
                 message = "Вам нужно сбросить примерно " + weightCount + " кг для нормализации веса";
             }
+
             Console.WriteLine();
             Console.WriteLine($"Ваш индекс масы тела = {userImt}. {message}");
 
