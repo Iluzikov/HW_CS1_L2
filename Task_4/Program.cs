@@ -13,6 +13,7 @@ namespace Task_4
 {
     class Program
     {
+
         static bool checkAuth(string log, string pass)
         {
             string correctLogin = "root";
@@ -29,19 +30,22 @@ namespace Task_4
             int tryCount = 3;
             do
             {
+                tryCount--;
                 Console.WriteLine("Введите логин:");
                 string login = Console.ReadLine();
                 Console.WriteLine("Введите пароль:");
                 string password = Console.ReadLine();
+
                 if (checkAuth(login, password))
                 {
-                    Console.WriteLine("Доступ разрешен.");
+                    Console.WriteLine("Доступ разрешен. Добро пожаловать!");
                     break;
                 }
                 else
                 {
-                    tryCount--;
-                    Console.WriteLine($"Нет доступа! Осталось {tryCount} попытки(ка)");
+                    var messageNext = $"Нет доступа! Осталось {tryCount} попытки(ка)";
+                    var messageOff = "Попытки исчерпаны, доступ заблокирован!";
+                    Console.WriteLine(tryCount != 0 ? messageNext : messageOff);
                 }
                     
             } while (tryCount > 0);
