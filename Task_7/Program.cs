@@ -33,6 +33,7 @@ namespace Task_7
             Console.WriteLine($"Числа от {a} до {b} ");
             PrintNumberLoop(a, b);
             Console.WriteLine();
+            // Задание б)
             Console.WriteLine("Сумма этих чисел = " + SumLoop(a, b));
 
             Console.ReadKey();

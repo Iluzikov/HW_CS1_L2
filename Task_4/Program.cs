@@ -13,7 +13,6 @@ namespace Task_4
 {
     class Program
     {
-
         static bool checkAuth(string log, string pass)
         {
             string correctLogin = "root";
