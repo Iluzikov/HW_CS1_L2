@@ -8,28 +8,30 @@ namespace Task_6
 {
     class Program
     {
+        static bool IsGoodNumber(int num)
+        {
+            return num % ((num / 10) + (num % 10)) == 0;
+        }
+
         static void Main(string[] args)
         {
-            Random ran = new Random();
-            int goodNumCount = 0;
+            int goodNumberCount = 0;
+            var timeStart = DateTime.Now;
+            int numStart = 1;
+            int numEnd = 1000000000;
+            Console.WriteLine("Программа запущена в: "+ timeStart.ToString("hh:mm:ss"));
+            Console.WriteLine($"Выполняется поиск \"хороших\" чисел в диапазоне от {numStart}  до {numEnd}");
 
-            for (int i = 1; i < 10000000; i++)
+            for (int i = numStart; i < numEnd; i++)
             {
-                int a = i;
-                int b = a / 10;
-                int c = a % 10;
-                int x = b + c;
-                int z = a / x;
-                if(a % x == 0)
-                {
-                    goodNumCount++;
-                    //Console.WriteLine($"{a} -> {b} + {c} = {x} | {a} / {x} = {z}");
-                    
-                }
-
+                if(IsGoodNumber(i))
+                    goodNumberCount++;
             }
 
-            Console.WriteLine($"Количество Хороших чисел = {goodNumCount.ToString("### ### ### ###")}");
+            var executionTime = DateTime.Now - timeStart;
+            Console.WriteLine();
+            Console.WriteLine($"Количество \"хороших\" чисел = {goodNumberCount.ToString("### ### ### ###")}");
+            Console.WriteLine($"Время выполнения {executionTime.ToString("ss")} сек {executionTime.ToString("ff")} мсек");
             
             Console.ReadKey();
         }
